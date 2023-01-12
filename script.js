@@ -14,8 +14,8 @@ function convertToRoman(num) {
 
 	
 for( const key in obj){
-	res += key.repeat(Math.floor(num / map[key]));)
- num %= map[key];
+	res += key.repeat(Math.floor(num / obj[key]));)
+ num %= obj[key];
 	
 }
 return res;
