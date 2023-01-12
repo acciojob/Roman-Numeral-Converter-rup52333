@@ -1,24 +1,34 @@
 function convertToRoman(num) {
-  	const obj = {
-      0:['M',1000], 
-      1:['D', 500], 
-      2:['C', 100], 
-      3:['L', 50], 
-      4:['X', 10], 
-      5:['V', 5], 
-      6:['I', 1]
+  	const lookupTable = {
+      M:1000, 
+      CM:900, 
+      D:500, 
+      CD:400, 
+      C:100, 
+      CX:90, 
+      L:50, 
+      LX:40, 
+      X:10, 
+      IX:9, 
+      V:5, 
+      IV:4, 
+      I:1
     };
 
   //your code here
-	let res='';
+	let accumulator='';
 
 	
-for(key in obj){
-	res += key.repeat(Math.floor(num / obj[key]));)
- num %= obj[key];
+for(const key in lookupTable){
+const numberValue=lookupTable[key];
+while(numberValue<=num){
+ num-=numberValue;
+ accumulator+=key;
+
+}
 	
 }
-return res;
+return accumulator;
 }
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
 
